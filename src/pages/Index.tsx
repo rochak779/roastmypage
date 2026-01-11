@@ -76,6 +76,9 @@ const Index = () => {
     const roasts = generateMockRoast(url);
     const score = calculateScore(roasts);
     
+    console.log("Generated roasts:", roasts);
+    console.log("Calculated score:", score);
+    
     setResults({ score, url, roasts });
     setIsLoading(false);
   };

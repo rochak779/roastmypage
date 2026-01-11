@@ -53,13 +53,7 @@ export const RoastCard = ({
       className={`
         p-5 rounded-lg border-2 ${styles.border} ${styles.bg} 
         transition-all duration-300 ${styles.glow}
-        opacity-0 animate-in fade-in slide-in-from-bottom-4
       `}
-      style={{ 
-        animationDelay: `${delay}ms`,
-        animationFillMode: "forwards",
-        animationDuration: "500ms"
-      }}
     >
       <div className="flex items-start gap-4">
         <div className="mt-0.5">
