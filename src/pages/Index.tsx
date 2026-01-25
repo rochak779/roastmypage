@@ -2,85 +2,51 @@ import { useState } from "react";
 import { URLInput } from "@/components/URLInput";
 import { RoastResults } from "@/components/RoastResults";
 import { Flame, Zap, Target, TrendingDown } from "lucide-react";
-
-// Mock roast data - in a real app, this would come from AI analysis
-const generateMockRoast = (url: string) => {
-  const roasts = [
-    {
-      category: "Headline",
-      title: "Your headline is putting people to sleep",
-      description: "\"Welcome to our website\" is not a value proposition. Tell visitors what they get, not that you exist. Every second of confusion costs you conversions.",
-      severity: "critical" as const,
-    },
-    {
-      category: "CTA",
-      title: "\"Submit\" is not a call to action",
-      description: "Your button says nothing about what happens next. Try \"Get Started Free\" or \"See It In Action\". Make the value crystal clear.",
-      severity: "critical" as const,
-    },
-    {
-      category: "Social Proof",
-      title: "Where's the evidence you're legit?",
-      description: "No testimonials, no logos, no numbers. Visitors don't trust you by default. Show them who else trusts you already.",
-      severity: "warning" as const,
-    },
-    {
-      category: "Speed",
-      title: "Your page loads slower than a government website",
-      description: "3+ seconds to interactive? You're losing 40% of visitors before they even see your content. Optimize those images.",
-      severity: "warning" as const,
-    },
-    {
-      category: "Mobile",
-      title: "Decent mobile experience",
-      description: "The page is responsive and buttons are tap-friendly. Navigation works on smaller screens. One less thing to worry about.",
-      severity: "good" as const,
-    },
-    {
-      category: "Clarity",
-      title: "Too much jargon, not enough clarity",
-      description: "\"Synergistic solutions for optimal paradigm shifts\" means nothing. Speak human. What problem do you solve?",
-      severity: "critical" as const,
-    },
-  ];
-
-  // Shuffle and return a subset based on URL hash for variety
-  const shuffled = [...roasts].sort(() => Math.random() - 0.5);
-  const count = 4 + Math.floor(Math.random() * 3);
-  return shuffled.slice(0, count);
-};
-
-const calculateScore = (roasts: ReturnType<typeof generateMockRoast>) => {
-  const criticals = roasts.filter(r => r.severity === "critical").length;
-  const warnings = roasts.filter(r => r.severity === "warning").length;
-  const goods = roasts.filter(r => r.severity === "good").length;
-  
-  const baseScore = 100 - (criticals * 20) - (warnings * 10) + (goods * 5);
-  return Math.max(10, Math.min(95, baseScore));
-};
+import { roastPage, RoastItem } from "@/lib/api/roast";
+import { useToast } from "@/hooks/use-toast";
 
 const Index = () => {
+  const { toast } = useToast();
   const [isLoading, setIsLoading] = useState(false);
   const [results, setResults] = useState<{
     score: number;
     url: string;
-    roasts: ReturnType<typeof generateMockRoast>;
+    roasts: RoastItem[];
   } | null>(null);
 
   const handleSubmit = async (url: string) => {
     setIsLoading(true);
     
-    // Simulate API call delay
-    await new Promise(resolve => setTimeout(resolve, 2500));
-    
-    const roasts = generateMockRoast(url);
-    const score = calculateScore(roasts);
-    
-    console.log("Generated roasts:", roasts);
-    console.log("Calculated score:", score);
-    
-    setResults({ score, url, roasts });
-    setIsLoading(false);
+    try {
+      const result = await roastPage(url);
+      
+      console.log("Roast result:", result);
+      
+      if (!result.success) {
+        toast({
+          title: "Roast Failed",
+          description: result.error || "Failed to analyze the page. Please try again.",
+          variant: "destructive",
+        });
+        setIsLoading(false);
+        return;
+      }
+      
+      setResults({ 
+        score: result.score || 50, 
+        url: result.metadata?.url || url, 
+        roasts: result.roasts || [] 
+      });
+    } catch (error) {
+      console.error("Error roasting page:", error);
+      toast({
+        title: "Error",
+        description: "Something went wrong. Please try again.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   const handleReset = () => {
