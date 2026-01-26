@@ -1,73 +1,68 @@
-# Welcome to your Lovable project
+# Roast My Page 🔥
 
-## Project info
+**Roast My Page** is a fun, AI-powered tool that gives brutally honest (but entertaining) feedback on your website.
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+Drop your website URL, sit back, and let AI roast your design, copy, UX, and overall vibe — no mercy, just insights.
 
-## How can I edit this code?
+Built using **Lovable**, this project showcases how quickly you can turn an idea into a working AI product.
 
-There are several ways of editing your application.
+🌐 Live app: https://roastmypage.lovable.app
 
-**Use Lovable**
+---
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
+## ✨ What It Does
 
-Changes made via Lovable will be committed automatically to this repo.
+- 🔗 **Paste a website URL**
+- 🤖 **AI analyzes your page**
+- 🔥 **Get a savage roast** of:
+  - Design & layout
+  - Copywriting
+  - User experience
+  - Clarity & conversion
+- 😄 Funny, honest, and surprisingly useful feedback
 
-**Use your preferred IDE**
+---
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+## 🧠 Why Roast My Page?
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+Because polite feedback doesn’t help anyone.
 
-Follow these steps:
+Roast My Page is designed to:
+- Make feedback fun
+- Surface real issues quickly
+- Help founders, designers, and indie hackers improve their sites
+- Entertain while educating
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+---
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+## 🛠 Built With
 
-# Step 3: Install the necessary dependencies.
-npm i
+- **Lovable** – Rapid AI app development
+- **AI / LLMs** – For analysis and roasting
+- **Web Scraping / Page Analysis** – To understand page content
+- **Deployed on Lovable**  
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
+---
 
-**Edit a file directly in GitHub**
+## 🚀 Getting Started
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+This project is deployed and ready to use.
 
-**Use GitHub Codespaces**
+👉 Visit: **https://roastmypage.lovable.app**
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+No signup required — just paste a URL and get roasted.
 
-## What technologies are used for this project?
+---
 
-This project is built with:
+## 🙌 Acknowledgements
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+- Built with **Lovable**
+- Inspired by the internet’s love for constructive criticism… delivered aggressively
 
-## How can I deploy this project?
+---
 
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
+## 💬 Feedback
 
-## Can I connect a custom domain to my Lovable project?
+Got roasted? Loved it? Hated it?
 
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+Open an issue or share the app — every roast makes it better 🔥
