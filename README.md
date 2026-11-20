@@ -22,3 +22,7 @@ Founders and indie makers rarely get honest feedback on their landing pages. Fri
 React, TypeScript, Vite, Tailwind CSS, Supabase Edge Function for page fetching and analysis, LLM-generated feedback. Built and hosted with Lovable.
 
 </details>
+
+---
+
+Built by [Rochak Agarwal](https://www.rochakagarwal.com). More of my work is at [rochakagarwal.com](https://www.rochakagarwal.com).
